@@ -1,0 +1,9 @@
+.menu{
+	background: #2e2e2e;
+
+}
+.navbar-nav > li > a {
+    color: white;
+    font-weight: 400;
+	font-size: 20px;
+}

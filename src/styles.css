@@ -1,0 +1,26 @@
+/* Classes Globais são colocadas neste arquivo */
+
+.destacar-texto{
+	color:#f89d27;
+}
+.positivo{
+	color:#32db64;
+	font-size: 20px;
+	margin-top: 25px;
+
+}
+.negativo{
+	color:#f53d3d;
+	font-size: 20px;
+	margin-top: 25px;
+}
+.back-positivo{
+	background: rgba(50,219,100,0.1);
+}
+.back-negativo{
+	background: rgba(245,61,61,0.1);
+}
+.row{
+	margin-top:10px;
+}
+

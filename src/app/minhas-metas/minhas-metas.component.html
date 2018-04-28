@@ -1,0 +1,84 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h3><strong class="destacar-texto">MINHAS</strong><strong> METAS</strong></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6" align="right">
+			<select name="" id="" class="select">
+				<option value="0">DOMINGO</option>
+				<option value="1">SEGUNDA-FEIRA</option>
+				<option value="2">TERÇA-FEIRA</option>
+				<option value="3">QUARTA-FEIRA</option>
+				<option value="4">QUINTA-FEIRA</option>
+				<option value="5">SEXTA-FEIRA</option>
+				<option value="6">SÁBADO</option>
+			</select>
+		</div>
+		<div class="col-sm-6">
+			<button class="btn btn-success btn-lg">
+				<i class="fas fa-plus"></i>
+				MATERIA
+			</button>
+		</div>
+	</div>
+	<br>
+	<div class="row" *ngIf="!ListaMaterias">
+		<div class="col-sm-12" align="center">
+			<label>
+				<strong>Nenhuma atividade agendada.</strong>
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h4><strong class="destacar-texto">REVISÕES</strong><strong> AGENDADAS</strong></h4>
+		</div>
+	</div>
+	<div class="row linha">
+		<div class="col-sm-4"><strong>Nome: </strong></div>
+		<div class="col-sm-4"><strong>Tema: </strong></div>
+		<div class="col-sm-4"><strong>Tempo: </strong></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h4><strong class="destacar-texto">MATERIAS</strong><strong> AGENDADAS</strong></h4>
+		</div>
+	</div>
+	<div class="row" *ngFor = "let materia of listaMaterias;let l = last">
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-10">
+							<i class="fas fa-book cores">{{l === true ? preencherCores():null}}</i>
+							<label><strong>{{materia.nome}}</strong></label>
+						</div>
+						<div class="col-sm-1" align="right">
+							<button class="btn btn-danger">
+								<i class="fas fa-trash"></i>
+							</button>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-6">
+							<label>
+								<strong>Nivel: </strong>
+							</label>
+						</div>
+						<div class="col-sm-6">
+							<label>
+								<strong>Meta:</strong>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

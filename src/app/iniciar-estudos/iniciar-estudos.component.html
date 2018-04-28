@@ -1,0 +1,123 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h3><strong class="destacar-texto">INICIAR</strong><strong> ESTUDOS</strong></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-4">
+					<label>DATA</label>
+					<br>
+					<input type="date" class="input input-data">
+				</div>
+				<div class="col-sm-8" >
+					<label>TIPO DE ESTUDO</label>
+					<br>
+					<select name="" class="input select">
+						<option value="teoria">Teoria</option>
+						<option value="excercicios">Exercicios</option>
+						<option value="revisao">Revisão</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12" >
+					<label>MATÉRIA</label>
+					<br>
+					<select name="" class="input select">
+						<option value=""></option>
+					</select></div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<label>TEMA</label>
+						<br>
+						<input type="text" class="input">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<label>DESCRIÇÃO</label>
+						<br>
+						<textarea  cols="30" rows="10" class="text-area"></textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12" align="center">
+						<strong>CRIAR REVISÕES ?</strong>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12" align="center">
+						Será gerado revisões para que te ajude a fixar o conteudo estudado.
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="right">
+						<label for="sim" >
+							<input type="radio" value="sim">
+							<strong>Sim</strong>
+						</label>
+					</div>
+					<div class="col-sm-6"><label for="">
+						<input type="radio">
+						<strong>Não</strong>
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+
+
+			<div class="row" align="center" *ngIf="tipoTempo=='cronometro'">
+				<div class="col-sm-12"><img src="../assets/Cronometro.png" alt="simbolo de um cronometro" width="100px" class="img img-responsive"></div>
+			</div>
+			<div class="row" >
+				<div class="col-sm-6" align="right">
+					<label for="cronometro">
+						<input type="radio" id="cronometro">
+					Cronômetro</label>
+				</div>
+				<div class="col-sm-6" align="left">
+					<label for="cronometro">
+						<input type="radio" id="cronometro">
+					Manual</label>
+				</div>	
+			</div>
+			<div class="row" *ngIf="tipoTempo=='cronometro'">
+				<div class="col-sm-12 cronometro" align="center">
+					<label>00:00:00</label>
+				</div>
+			</div>
+			<div class="row" *ngIf="tipoTempo=='cronometro'">
+				<div class="col-sm-6"><button class="btn btn-success btn-block">INICIAR</button></div>
+				<div class="col-sm-6"><button class="btn btn-warning btn-block">GRAVAR</button></div>
+
+			</div>
+			<div class="row" *ngIf="tipoTempo=='cronometro'">
+				<div class="col-sm-6"><button class="btn btn-danger btn-block">CANCELAR</button></div>
+				<div class="col-sm-6">
+					<input type="checkbox">
+					<label>CRIAR ALERTA</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5 " align="right"><input class="input input-tempo" type="number" placeholder="HH"></div>
+				<div class="col-sm-1"><label style="font-size:40px;margin-top:-15px">:</label></div>
+				<div class="col-sm-5 " align="left"><input class="input input-tempo" type="number" placeholder="MM"></div>
+			</div>
+			<div class="row" >
+				<div class="col-sm-12"><button class="btn btn-success" style="width:200px;margin-left:150px">
+					<i class="fas fa-save"></i>
+					Salvar
+				</button></div>
+			</div>
+
+		</div>
+	</div>
+</div>

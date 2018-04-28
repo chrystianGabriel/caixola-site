@@ -1,0 +1,48 @@
+.cronometro{
+	font-size: 40px;
+}
+.input{
+	width: 100%;
+	height: 50px;
+	border: 2px dashed black;
+}
+.input-data{
+	width: 150px;
+	height: 50px;
+}
+.input-tempo{
+	width: 50px;
+}
+.select{
+	width: 100%;
+	height: 50px;
+}
+.text-area{
+	width: 100%;
+	border: 2px dashed black;
+}
+::-webkit-input-placeholder{
+	text-align: right;
+	color:black;
+}
+::-moz-input-placeholder{
+	text-align: right;
+	color:black;
+}
+::-moz-placeholder{
+	text-align: right;
+	color:black;
+}
+::-ms-input-placeholder{
+	text-align: right;
+	color:black;
+}
+input[type="date"]::-webkit-inner-spin-button{
+   display: none;
+}
+input[type="date"]::-moz-inner-spin-button{
+   display: none;
+}
+input[type="date"]::-ms-inner-spin-button{
+   display: none;
+}

@@ -1,0 +1,136 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h3><strong class="destacar-texto">RESUMO</strong><strong> DIÁRIO</strong></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 positivo" align="center">
+			<i class="fas fa-arrow-up"></i>
+			MATERIA MAIS ESTUDADA
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-xs-12">
+			<div class="card positivo back-positivo">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-3 " align="center">
+							<i class="far fa-clock"></i>
+							<h5>TEMPO</h5>
+						</div>
+						<div class="col-sm-9" align="center">
+							<h3>--:--</h3>
+							<h4>NOME MATERIA</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xs-12">
+			<div class="card positivo back-positivo">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-4" align="center">
+							<i class="fas fa-pencil-alt"></i>
+							<h5>EXERCÍCIOS</h5>
+						</div>
+						<div class="col-sm-8" align="center">
+							<h3>--:--</h3>
+							<h4>NOME MATÉRIA</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12 negativo" align="center">
+			<i class="fas fa-arrow-up"></i>
+			MATERIA MENOS ESTUDADA
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-xs-12">
+			<div class="card negativo back-negativo">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-3" align="center">
+							<i class="far fa-clock"></i>
+							<h5>TEMPO</h5>
+						</div>
+						<div class="col-sm-9" align="center">
+							<h3>--:--</h3>
+							<h4>NOME MATERIA</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xs-12">
+			<div class="card negativo back-negativo">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-4" align="center">
+							<i class="fas fa-pencil-alt"></i>
+							<h5>EXERCÍCIOS</h5>
+						</div>
+						<div class="col-sm-8" align="center">
+							<h3>--:--</h3>
+							<h4>NOME MATÉRIA</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<hr>
+			<h3><strong class="destacar-texto">ATIVIDADES</strong><strong> PREVISTAS</strong></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h4><i class="fas fa-calendar-alt"></i> {{dataAtual}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<button class="btn btn-success"><strong>INICIAR ESTUDOS</strong></button>
+		</div>
+	</div>
+	<br>
+	<div class="row" *ngIf="!listaMaterias">
+		<div class="col-sm-12" align="center">
+			<div class="alert alert-danger" role="alert">
+				NENHUMA MATÉRIA CADASTRADA
+			</div>
+		</div>
+	</div>
+
+		<div class="row">
+			<div class="col-sm-12 col-xs-12" align="center">
+				<div class="card" style="width:50%;text-align:left">
+					<div class="card-body" *ngFor = "let materia of listaMaterias;let l = last">
+						<div class="row">
+							<div class="col-sm-2">
+								<i class="fas fa-book cores">{{l === true ? preencherCores():null}}</i>
+							</div>
+							<div class="col-sm-10">
+								{{materia.nome}}
+								<hr>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+
+
+</div>
