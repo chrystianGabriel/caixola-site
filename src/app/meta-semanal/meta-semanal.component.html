@@ -10,22 +10,19 @@
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-sm-12">
-						<p>DIGITE A QUANTIDADE DE HORAS E MINUTOS QUE SESEJA ESTUDAR POR SEMANA!</p>
+						<p>DIGITE A QUANTIDADE DE HORAS E MINUTOS QUE DESEJA ESTUDAR POR DIA!</p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-5 " align="right"><input class="input input-tempo" type="number" placeholder="HH"></div>
+					<div class="col-sm-5 " align="right"><input class="input input-tempo" type="number" placeholder="HH" [(ngModel)]="horas"></div>
 					<div class="col-sm-1"><label style="font-size:40px;margin-top:-15px">:</label></div>
-					<div class="col-sm-5 " align="left"><input class="input input-tempo" type="number" placeholder="MM"></div>
+					<div class="col-sm-5 " align="left"><input class="input input-tempo" type="number" placeholder="MM" [(ngModel)]="minutos"></div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
-				<button type="button" class="btn btn-success">SALVAR</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal" (click)="cancelar()">CANCELAR</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal" (click)="cadastrarMeta()">SALVAR</button>
 			</div>
 		</div>
 	</div>
 </div>
-<script>
-
-</script>

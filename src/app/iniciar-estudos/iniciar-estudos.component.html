@@ -10,12 +10,12 @@
 				<div class="col-sm-4">
 					<label>DATA</label>
 					<br>
-					<input type="date" class="input input-data">
+					<input type="date" class="input input-data" [(ngModel)]="data">
 				</div>
 				<div class="col-sm-8" >
 					<label>TIPO DE ESTUDO</label>
 					<br>
-					<select name="" class="input select">
+					<select name="" class="input select" [(ngModel)]="tipoEstudo" #ctrl="ngModel">
 						<option value="teoria">Teoria</option>
 						<option value="excercicios">Exercicios</option>
 						<option value="revisao">Revisão</option>
@@ -26,8 +26,8 @@
 				<div class="col-sm-12" >
 					<label>MATÉRIA</label>
 					<br>
-					<select name="" class="input select">
-						<option value=""></option>
+					<select name="" class="input select" [(ngModel)]="materia" id="selectMateria">
+						<option value="0">Selecione uma Matéria</option>
 					</select></div>
 				</div>
 				<br>
@@ -35,7 +35,7 @@
 					<div class="col-sm-12">
 						<label>TEMA</label>
 						<br>
-						<input type="text" class="input">
+						<input type="text" class="input" [(ngModel)]="tema">
 					</div>
 				</div>
 				<br>
@@ -43,28 +43,38 @@
 					<div class="col-sm-12">
 						<label>DESCRIÇÃO</label>
 						<br>
-						<textarea  cols="30" rows="10" class="text-area"></textarea>
+						<textarea  cols="30" rows="10" class="text-area" [(ngModel)]="descricao"></textarea>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row" *ngIf="tipoEstudo == 'excercicios'">
+					<div class="col-sm-6">
+						<label>Exercicios</label>
+						<input type="number" min="0" class="input" [(ngModel)]="exercicios">
+					</div>
+					<div class="col-sm-6">
+						<label>Acertos</label>
+						<input type="number" min="0" class="input" [(ngModel)]="acertos">
+					</div>
+				</div>
+				<div class="row" *ngIf="tipoEstudo == 'teoria'">
 					<div class="col-sm-12" align="center">
 						<strong>CRIAR REVISÕES ?</strong>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row" *ngIf="tipoEstudo == 'teoria'">
 					<div class="col-sm-12" align="center">
 						Será gerado revisões para que te ajude a fixar o conteudo estudado.
 					</div>
 				</div>
-				<div class="row">
+				<div class="row" *ngIf="tipoEstudo == 'teoria'">
 					<div class="col-sm-6" align="right">
 						<label for="sim" >
-							<input type="radio" value="sim">
+							<input type="radio" value="sim" checked name="revisao" [(ngModel)]="revisoes">
 							<strong>Sim</strong>
 						</label>
 					</div>
 					<div class="col-sm-6"><label for="">
-						<input type="radio">
+						<input type="radio" name="revisao" value="nao" [(ngModel)]="revisoes">
 						<strong>Não</strong>
 					</label>
 				</div>
@@ -73,46 +83,46 @@
 
 		<div class="col-sm-6">
 
-
 			<div class="row" align="center" *ngIf="tipoTempo=='cronometro'">
 				<div class="col-sm-12"><img src="../assets/Cronometro.png" alt="simbolo de um cronometro" width="100px" class="img img-responsive"></div>
 			</div>
-			<div class="row" >
+			<div class="row">
 				<div class="col-sm-6" align="right">
 					<label for="cronometro">
-						<input type="radio" id="cronometro">
+						<input type="radio" id="cronometro" name="tipoTempo"  value="cronometro" (change)="mudarTipoTempo('cronometro')" checked>
 					Cronômetro</label>
 				</div>
 				<div class="col-sm-6" align="left">
-					<label for="cronometro">
-						<input type="radio" id="cronometro">
+					<label for="manual">
+						<input type="radio" id="manual"  name="tipoTempo" value="manual" (change)="mudarTipoTempo('manual')">
 					Manual</label>
 				</div>	
 			</div>
 			<div class="row" *ngIf="tipoTempo=='cronometro'">
 				<div class="col-sm-12 cronometro" align="center">
-					<label>00:00:00</label>
+					<label id="tempo">00:00:00</label>
 				</div>
 			</div>
 			<div class="row" *ngIf="tipoTempo=='cronometro'">
-				<div class="col-sm-6"><button class="btn btn-success btn-block">INICIAR</button></div>
-				<div class="col-sm-6"><button class="btn btn-warning btn-block">GRAVAR</button></div>
+				<div class="col-sm-6"><button class="btn btn-success btn-block" (click)="iniciarEstudo()" id="btnIniciar">INICIAR
+				</button></div>
+				<div class="col-sm-6"><button class="btn btn-warning btn-block" (click)="gravar()">GRAVAR</button></div>
 
 			</div>
 			<div class="row" *ngIf="tipoTempo=='cronometro'">
-				<div class="col-sm-6"><button class="btn btn-danger btn-block">CANCELAR</button></div>
+				<div class="col-sm-6"><button class="btn btn-danger btn-block" (click)="cancelar()">ZERAR DADOS</button></div>
 				<div class="col-sm-6">
-					<input type="checkbox">
+					<input type="checkbox" [(ngModel)]="alerta" (change)="programarAlerta()" id="checkAlerta">
 					<label>CRIAR ALERTA</label>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-5 " align="right"><input class="input input-tempo" type="number" placeholder="HH"></div>
+			<div class="row" *ngIf="tipoTempo=='manual'">
+				<div class="col-sm-5 " align="right"><input class="input input-tempo" type="number" placeholder="HH" [(ngModel)]="hora"></div>
 				<div class="col-sm-1"><label style="font-size:40px;margin-top:-15px">:</label></div>
-				<div class="col-sm-5 " align="left"><input class="input input-tempo" type="number" placeholder="MM"></div>
+				<div class="col-sm-5 " align="left"><input class="input input-tempo" type="number" placeholder="MM" [(ngModel)]="minuto"></div>
 			</div>
-			<div class="row" >
-				<div class="col-sm-12"><button class="btn btn-success" style="width:200px;margin-left:150px">
+			<div class="row" *ngIf="tipoTempo=='manual'">
+				<div class="col-sm-12"><button class="btn btn-success" style="width:200px;margin-left:150px" (click)="gravar()">
 					<i class="fas fa-save"></i>
 					Salvar
 				</button></div>
@@ -121,3 +131,4 @@
 		</div>
 	</div>
 </div>
+<audio src="../assets/alarme.mp3" id="alarme"></audio>

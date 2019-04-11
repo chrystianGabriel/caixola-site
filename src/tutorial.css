@@ -1,0 +1,37 @@
+.tutorial{
+	position: relative;
+	z-index: 100000;
+}
+[data-tutorial="true"]:before{
+	opacity: 1;
+	visibility: visible;
+	content:"";
+	width: 100%;
+	height: 100%;
+	top:0;
+	left: 0;
+	background: black;
+	opacity: 0.5;
+	position: fixed;
+	z-index: -1;
+}
+.tooltip{
+	z-index: 10000000!important;
+	color: black!important;
+	font-size: 20px!important;
+
+}
+.tooltip-inner{
+	background: white!important;
+	color:black!important;
+}
+.tooltip-inner:after{
+	 content: " ";
+    position: absolute;
+    bottom: 95%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}

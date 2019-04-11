@@ -1,0 +1,27 @@
+.menu{
+	background: #2e2e2e;
+
+}
+.navbar-nav > li > a {
+    color: white;
+    font-weight: 400;
+	font-size: 20px;
+}
+.input{
+	width: 60%;
+	height: 50px;
+	border: 2px dashed black;
+
+}
+.btn{
+	width: 60%;
+}
+textarea{
+	border: 2px dashed black;
+}
+.a{
+	background: #FE2E2E;
+	border-radius: 5px;
+	border-left: 15px;
+
+}

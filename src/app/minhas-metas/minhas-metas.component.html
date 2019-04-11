@@ -1,84 +1,169 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12" align="center">
-			<h3><strong class="destacar-texto">MINHAS</strong><strong> METAS</strong></h3>
+			<div class="carregamento"  *ngIf="load">
+				<div class="loader"></div>
+				<strong>CARREGANDO DADOS.</strong>
+			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-6" align="right">
-			<select name="" id="" class="select">
-				<option value="0">DOMINGO</option>
-				<option value="1">SEGUNDA-FEIRA</option>
-				<option value="2">TERÇA-FEIRA</option>
-				<option value="3">QUARTA-FEIRA</option>
-				<option value="4">QUINTA-FEIRA</option>
-				<option value="5">SEXTA-FEIRA</option>
-				<option value="6">SÁBADO</option>
-			</select>
+	<span *ngIf="!load">
+		<div class="row">
+			<div class="col-sm-12" align="center">
+				<h3>
+					<strong class="destacar-texto">MINHAS</strong><strong> METAS</strong>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#modalDica">
+						<i class="fas fa-question"></i>
+					</button>
+				</h3>
+				
+			</div>
 		</div>
-		<div class="col-sm-6">
-			<button class="btn btn-success btn-lg">
-				<i class="fas fa-plus"></i>
-				MATERIA
-			</button>
+		<div class="row">
+			<div class="col-sm-6" align="right">
+				<select name="" id="" class="select" (change)="mudarDia()" [(ngModel)]="dia_semana">
+					<option value="0">DOMINGO</option>
+					<option value="1">SEGUNDA-FEIRA</option>
+					<option value="2">TERÇA-FEIRA</option>
+					<option value="3">QUARTA-FEIRA</option>
+					<option value="4">QUINTA-FEIRA</option>
+					<option value="5">SEXTA-FEIRA</option>
+					<option value="6">SÁBADO</option>
+				</select>
+			</div>
+			<div class="col-sm-6">
+				<button class="btn btn-success btn-lg" type="button" data-toggle="modal" data-target="#modalAdicionarMaterias">
+					<i class="fas fa-plus"></i>
+					MATERIA
+				</button>
+			</div>
 		</div>
-	</div>
-	<br>
-	<div class="row" *ngIf="!ListaMaterias">
-		<div class="col-sm-12" align="center">
-			<label>
-				<strong>Nenhuma atividade agendada.</strong>
-			</label>
+		<br>
+		<div class="row" *ngIf="!listaMaterias && revisoes.length == 0">
+			<div class="col-sm-12" align="center">
+				<label>
+					<strong>Nenhuma atividade agendada.</strong>
+				</label>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12" align="center">
-			<h4><strong class="destacar-texto">REVISÕES</strong><strong> AGENDADAS</strong></h4>
+		<div class="row" *ngIf="revisoes.length > 0">
+			<div class="col-sm-12" align="center">
+				<h4><strong class="destacar-texto">REVISÕES</strong><strong> AGENDADAS</strong></h4>
+			</div>
 		</div>
-	</div>
-	<div class="row linha">
-		<div class="col-sm-4"><strong>Nome: </strong></div>
-		<div class="col-sm-4"><strong>Tema: </strong></div>
-		<div class="col-sm-4"><strong>Tempo: </strong></div>
-	</div>
+		<span *ngFor="let revisao of revisoes">
+			<div class="row linha">
+				
+				<div class="col-sm-4"><strong>Nome: </strong> {{revisao.materia}}</div>
+				<div class="col-sm-4"><strong>Tema: </strong>{{revisao.tema}}</div>
+				<div class="col-sm-4"><strong>Tempo: </strong>{{revisao.tempo}}</div>
+				
+			</div>
+		</span>
 
-	<div class="row">
-		<div class="col-sm-12" align="center">
-			<h4><strong class="destacar-texto">MATERIAS</strong><strong> AGENDADAS</strong></h4>
-		</div>
-	</div>
-	<div class="row" *ngFor = "let materia of listaMaterias;let l = last">
-		<div class="col-sm-12">
-			<div class="card">
-				<div class="card-body">
-					<div class="row">
-						<div class="col-sm-10">
-							<i class="fas fa-book cores">{{l === true ? preencherCores():null}}</i>
-							<label><strong>{{materia.nome}}</strong></label>
-						</div>
-						<div class="col-sm-1" align="right">
-							<button class="btn btn-danger">
-								<i class="fas fa-trash"></i>
-							</button>
-						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="col-sm-6">
-							<label>
-								<strong>Nivel: </strong>
-							</label>
-						</div>
-						<div class="col-sm-6">
-							<label>
-								<strong>Meta:</strong>
-							</label>
+		<span *ngIf="listaMaterias != false">
+			<div class="row">
+				<div class="col-sm-12" align="center">
+					<h4><strong class="destacar-texto">MATERIAS</strong><strong> AGENDADAS</strong></h4>
+				</div>
+			</div>
+			<div class="row" *ngFor = "let materia of listaMaterias;let l = last">
+				<div class="col-sm-12">
+					<div class="card cardN">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-10">
+									<i class="fas fa-book coresN">{{l === true ? preencherCores():null}}</i>
+									<label><strong>{{materia.nome}}</strong></label>
+								</div>
+								<div class="col-sm-2" align="right">
+									<button class="btn btn-danger" (click)="removerMateria(materia.nome)">
+										<i class="fas fa-trash"></i>
+									</button>
+									<button class="btn btn-warning" (click)="editarMateria(materia)">
+										<i class="fas fa-edit"></i>
+									</button>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-6">
+									<label>
+										<strong>Nivel:  {{(materia.nivel == 1 ? "Iniciante":materia.nivel == 2? "Intermediário": materia.nivel == 3 ? "Avançado":"NULL")}}</strong>
+									</label>
+								</div>
+								<div class="col-sm-6">
+									<label>
+										<strong>Meta: {{materia.meta}}</strong>
+									</label>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</span>
+	</span>
+</div>
+<div class="modal fade" id="modalAdicionarMaterias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel"><strong><span style="color:#f89d27">ADICIONAR</span> MATERIAS</strong></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" *ngFor="let materia of array_materias; let l = last">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="card cardM">
+							<div class="card-body materia">
+								<div class="row">
+									<div class="col-sm-10">
+										<span>{{l === true ? peencherCoresModal():null}}</span>
+										<strong><i class="coresM fas fa-book" style="font-size:30px"></i></strong>
+										<label> {{materia.nome}}</label>
+									</div>
+									<div class="col-sm-2" align="right">
+										<input type="checkbox" (click)="mudou(materia)">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal" (click)="adicionarMaterias()">SALVAR</button>
+			</div>
 		</div>
 	</div>
 </div>
-
+<div class="modal fade" id="modalDica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">DUVIDA</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12">
+						<p>ESTA TELA DEMONSTRA O TEMPO SUGERIDO DE ESTUDO PARA QUE VOCÊ TENHA UM BOM DESEMPENHO, ESTE TEMPO É BASEADO NO PESO DESTA MATÉRIA NO CONCURSO, SEU NÍVEL DE CONHECIMENTO SOBRE ELA E AS HORAS QUE VOCÊ TEM DISPONÍVEL PARA ESTUDAR. VOCÊ PODE ALTERAR ESSAS INFORMAÇÕES A QUALQUER MOMENTO.\N CASO TENHA AGENDADO REVISÕES ELAS TAMBÉM IRAM APARECER NESTA TELA.</p>
+					</div>
+				</div>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" data-dismiss="modal">OK, ENTENDI!</button>
+			</div>
+		</div>
+	</div>
+</div>
 

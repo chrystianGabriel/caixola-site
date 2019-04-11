@@ -1,0 +1,44 @@
+<body>
+	<div class="container" align="center">
+		<div class="row">
+			<div class="col-sm-12">
+				<img src="../../assets/logo_caixola.png" width="400px">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<input  class="input" type="email" placeholder="E-mail" [(ngModel)]="email" >
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<input class="input" type="password" placeholder="Senha" [(ngModel)]="senha">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<button class="btn btn-lg btn-success" (click)="login()">ACESSAR MINHA CONTA</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<button class="btn btn-lg btn-basic" (click)="esqueciASenha()">ESQUECI MINHA SENHA</button>
+			</div>
+		</div>
+	</div>
+</body>
+<div class="modal fade" id="modalCarregando" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12" align="center">
+						<div class="loader"></div>
+						<strong>Efetuando Login.</strong>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

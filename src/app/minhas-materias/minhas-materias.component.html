@@ -2,36 +2,43 @@
 	<div class="row">
 		<div class="col-sm-12" align="center">
 			<h3><strong class="destacar-texto">MINHAS</strong><strong> MATÉRIAS</strong>
-				&nbsp;&nbsp;<button class="btn btn-warning btn-lg"><i class="fas fa-plus"></i></button></h3>
+				&nbsp;&nbsp;<a class="btn btn-warning btn-lg" routerLink="/cadastrar_materias"><i class="fas fa-plus"></i></a></h3>
 
+			</div>
 		</div>
-	</div>
-	<br>
-	<div class="row" *ngIf="!listaMaterias">
-		<div class="col-sm-12" align="center">
-			<label>NENHUMA MATÉRIA CADASTRADA</label>
+		<br>
+		<div class="row" *ngIf="!listaMaterias">
+			<div class="col-sm-12" align="center">
+				<label>NENHUMA MATÉRIA CADASTRADA</label>
+			</div>
 		</div>
-	</div>
-	<br>
-	<div class="row" *ngFor= "let materia of listaMaterias;let l = last">
-		<div class="col-sm-12">
-			<div class="card">
-				<div class="card-body materia">
-					<div class="row">
-						<div class="col-sm-10">
-							<span>{{l === true ? preencherCores():null}}</span>
-							<strong><i class="cores fas fa-book" style="font-size:30px"></i></strong>
-							<label> {{materia.nome}}</label>
-						</div>
-						<div class="col-sm-2">
-							<button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-							<button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+		<br>
+		<div class="row" *ngFor= "let materia of listaMaterias;let l = last">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body materia">
+						<div class="row">
+							<div class="col-sm-10" (click)="listarEstudos(materia)">
+								<span>{{l === true ? preencherCores():null}}</span>
+								<strong><i class="cores fas fa-book" style="font-size:30px"></i></strong>
+								<label> {{materia.nome}}</label>
+							</div>
+							<div class="col-sm-2">
+								<button class="btn btn-sm btn-danger"  (click)="deletarMateria(materia.nome)"><i class="fas fa-trash"></i></button>
+								<a class="btn btn-sm btn-warning"  (click)="editarMateria(materia)"><i class="fas fa-edit"></i></a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-12" style="margin-top: 30px;font-size: 30px" align="center" *ngIf = "load">
+				<div class="carregamento">
+					<div class="loader"></div>
+					<strong>CARREGANDO DADOS.</strong>
+				</div>
+			</div>
+		</div>
 	</div>
-
-</div>
 

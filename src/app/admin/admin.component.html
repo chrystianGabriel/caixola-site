@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-light menu">
+  <a class="navbar-brand" routerLink="/admin"><img src="../assets/logo_caixola.png" alt="Logo Caixola estudos"  class="navbar-brand" width="100px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" (click)="opcoes('cadastrar')"><i class="fas fa-home" ></i>&nbsp; CADASTRAR<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="opcoes('mensagem')"><i class="fas fa-play"></i>&nbsp; ENVIAR MENSAGEM</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link a" routerLink="/login">SAIR</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" align="center">
+  <span *ngIf="menu == 'cadastrar'">
+    <div class="row">
+      <div class="col-sm-12" align="center">
+        <h3><strong class="destacar-texto">CADASTRAR</strong><strong> USUÁRIO</strong></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <input type="text" class="input" placeholder="Digite o e-mail do usuario" [(ngModel)]="email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <input type="password" class="input" placeholder="Digite a senha" [(ngModel)]="senha">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <input type="password" class="input" placeholder="Confirmar a senha" [(ngModel)]="confirmar_senha">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"
+      ><button class="btn btn-lg btn-success" (click)="cadastrarUsuario()">CADASTRAR</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button class="btn btn-lg btn-danger"> CANCELAR</button>
+    </div>
+  </div>
+</span>
+<span *ngIf="menu == 'mensagem'">
+   <div class="row">
+      <div class="col-sm-12" align="center">
+        <h3><strong class="destacar-texto">ENVIAR</strong><strong> MENSAGEM</strong></h3>
+      </div>
+    </div>
+<div class="row">
+  <div class="col-sm-12">
+      <textarea cols="100" rows="10" [(ngModel)]="mensagem"></textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6" align="right">
+    <button class="btn btn-lg btn-success" (click)="enviarMensagem()">ENVIAR MENSAGEM</button>
+  </div>
+  <div class="col-sm-6" align="left">
+    <button class="btn btn-lg btn-danger">CANCELAR</button>
+  </div>
+</div>
+</span>
+</div>
+

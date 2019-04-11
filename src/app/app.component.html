@@ -1,1 +1,10 @@
-<app-top-menu></app-top-menu>
+<span  *ngIf="url != '/login' && url != '/admin'">
+	<app-top-menu></app-top-menu>
+</span>
+<span *ngIf="url == '/login'">
+	<app-login></app-login>
+</span>
+<span *ngIf="url == '/admin'">
+	<app-admin></app-admin>
+</span>
+

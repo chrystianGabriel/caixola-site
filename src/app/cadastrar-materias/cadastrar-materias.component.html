@@ -1,0 +1,87 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h3><strong class="destacar-texto">CADASTRAR</strong><strong> MATÉRIA</strong></h3>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-sm-6">
+			<label for=""><strong>Nome</strong></label>
+			<input type="text" [(ngModel)]="nome" class="input">
+		</div>
+		<div class="col-sm-6">
+			<label><strong>Nivel Materia</strong></label>
+			<select [(ngModel)]="nivel" class="input">
+				<option value="">Selecione seu nível na matéria</option>
+				<option value="1">Iniciante</option>
+				<option value="2">Intermediario</option>
+				<option value="3">Avançado</option>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<strong>Dias da Semana</strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<input type="checkbox" [(ngModel)]="seg" id="seg">
+			<label for="seg" style="font-size:20px"> Segunda-Feira</label>
+		</div>
+		<div class="col-sm-3" >
+			<input type="checkbox" [(ngModel)]="ter" id="ter">
+			<label style="font-size:20px" for="ter"> Terça-Feira</label>
+		</div>
+		<div class="col-sm-3" >
+			<input type="checkbox" [(ngModel)]="qua" id="qua">
+			<label style="font-size:20px" for="qua"> Quarta-Feira</label>
+		</div>
+		<div class="col-sm-3" >
+			<input type="checkbox" [(ngModel)]="dom" id="dom">
+			<label style="font-size:20px" for="dom"> Domingo</label>
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<input type="checkbox" [(ngModel)]="quin" id="quin">
+			<label for="quin" style="font-size:20px"> Quinta-Feira</label>
+		</div>
+		<div class="col-sm-3" >
+			<input type="checkbox" [(ngModel)]="sex" id="sex">
+			<label style="font-size:20px" for="sex"> Sexta-Feira</label>
+		</div>
+		<div class="col-sm-3" >
+			<input type="checkbox" [(ngModel)]="sab" id="sab">
+			<label style="font-size:20px" for="sab"> Sabado</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<label for="">Questões</label>
+			<input type="number" class="input" [(ngModel)]="questoes" min="0">
+		</div>
+		<div class="col-sm-4">
+			<label for="">Peso</label>
+			<input type="number" class="input" [(ngModel)]="peso" min="0" max="3">
+		</div>
+		<div class="col-sm-4">
+			<label>Selecione uma cor:</label>
+			<div>
+				<input type="color" [(ngModel)]="cor" id="corMateria" class="input-color">
+			</div>
+			
+		</div>
+	</div>
+	<div class="row" align="center">
+		<div class="col-sm-6">
+			<button class="btn btn-success btn-block" (click)="cadastrarMateria()">Salvar Materia</button>
+		</div>
+		<div class="col-sm-6" align="left">
+			<button class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+		</div>
+	</div>
+	
+</div>

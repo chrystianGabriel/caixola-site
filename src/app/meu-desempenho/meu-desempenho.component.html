@@ -6,60 +6,68 @@
 			</label>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="card">
-				<div class="card-header">
-					<h3><strong class="destacar-texto">DESEMPENHO</strong><strong> DIARIO</strong></h3>
-				</div>
-				<div class="card-body">
-					<div class="row">
-						<div class="col-sm-12" style="margin-top: 30px;font-size: 30px" align="center">
-							<div class="loader"></div>
-							<strong>CARREGANDO DADOS.</strong>
+	<span>
+		<div class="row" id="desempenho_diario">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3><strong class="destacar-texto">DESEMPENHO</strong><strong> DIARIO</strong></h3>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-12" style="margin-top: 30px;font-size: 30px" align="center">
+								<div class="carregamento">
+									<div class="loader"></div>
+									<strong>CARREGANDO DADOS.</strong>
+								</div>
+							</div>
+							<canvas #graficoDiario></canvas>
 						</div>
-						<canvas id="graficoDiario"></canvas>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="card">
-				<div class="card-header">
-					<h3><strong class="destacar-texto">DESEMPENHO</strong><strong> SEMANAL</strong></h3>
-				</div>
-				<div class="card-body">
-					<div class="row">
-						<div class="col-sm-12" style="margin-top: 30px;font-size: 30px" align="center">
-							<div class="loader"></div>
-							<strong>CARREGANDO DADOS.</strong>
+		<div class="row" id="desempenho_semanal">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3><strong class="destacar-texto">DESEMPENHO</strong><strong> SEMANAL</strong></h3>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-12" style="margin-top: 30px;font-size: 30px" align="center">
+								<div class="carregamento">
+									<div class="loader"></div>
+									<strong>CARREGANDO DADOS.</strong>
+								</div>
+							</div>
+							<canvas #graficoSemanal></canvas>
 						</div>
-						<canvas id="graficoDiario"></canvas>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="card">
-				<div class="card-header">
-					<h3><strong class="destacar-texto">DESEMPENHO</strong><strong> GERAL</strong></h3>
-				</div>
-				<div class="card-body">
-					<div class="row">
-						<div class="col-sm-12" style="margin-top: 30px;font-size: 30px" align="center">
-							<div class="loader"></div>
-							<strong>CARREGANDO DADOS.</strong>
+		<div class="row" id="desempenho_geral">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3><strong class="destacar-texto">DESEMPENHO</strong><strong> GERAL</strong></h3>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-12" style="margin-top: 30px;font-size: 30px" align="center">
+								<div class="carregamento">
+									<div class="loader"></div>
+									<strong>CARREGANDO DADOS.</strong>
+								</div>
+							</div>
+							<canvas #graficoGeral></canvas>
 						</div>
-						<canvas id="graficoDiario"></canvas>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
+	</span>
 
 </div>

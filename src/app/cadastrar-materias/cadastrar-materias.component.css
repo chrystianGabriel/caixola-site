@@ -1,0 +1,13 @@
+.input{
+	width: 100%;
+	height: 50px;
+	border: 2px dashed black;
+}
+
+.input-color{
+	width: 70px;
+	height:70px;
+	background: transparent;
+	border: 0px;
+
+}

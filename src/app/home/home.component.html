@@ -21,8 +21,8 @@
 							<h5>TEMPO</h5>
 						</div>
 						<div class="col-sm-9" align="center">
-							<h3>--:--</h3>
-							<h4>NOME MATERIA</h4>
+							<h3>{{materia_mais_estudada.tempoLabel}}</h3>
+							<h4>{{materia_mais_estudada.nome}}</h4>
 						</div>
 					</div>
 				</div>
@@ -37,8 +37,8 @@
 							<h5>EXERCÍCIOS</h5>
 						</div>
 						<div class="col-sm-8" align="center">
-							<h3>--:--</h3>
-							<h4>NOME MATÉRIA</h4>
+							<h3>{{materia_mais_acertos.porcentagemLabel}}</h3>
+							<h4>{{materia_mais_acertos.nome}}</h4>
 						</div>
 					</div>
 				</div>
@@ -63,15 +63,15 @@
 							<h5>TEMPO</h5>
 						</div>
 						<div class="col-sm-9" align="center">
-							<h3>--:--</h3>
-							<h4>NOME MATERIA</h4>
+							<h3>{{materia_menos_estudada.tempoLabel}}</h3>
+							<h4>{{materia_menos_estudada.nome}}</h4>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-6 col-xs-12">
-			<div class="card negativo back-negativo">
+			<div class="card negativo back-negativo" >
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-4" align="center">
@@ -79,8 +79,8 @@
 							<h5>EXERCÍCIOS</h5>
 						</div>
 						<div class="col-sm-8" align="center">
-							<h3>--:--</h3>
-							<h4>NOME MATÉRIA</h4>
+							<h3>{{materia_menos_acertos.porcentagemLabel}}</h3>
+							<h4>{{materia_menos_acertos.nome}}</h4>
 						</div>
 					</div>
 				</div>
@@ -100,14 +100,14 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-12" align="center">
-			<button class="btn btn-success"><strong>INICIAR ESTUDOS</strong></button>
+			<a class="btn btn-success" routerLink="/iniciar_estudos"><strong>INICIAR ESTUDOS</strong></a>
 		</div>
 	</div>
 	<br>
 	<div class="row" *ngIf="!listaMaterias">
 		<div class="col-sm-12" align="center">
 			<div class="alert alert-danger" role="alert">
-				NENHUMA MATÉRIA CADASTRADA
+				NENHUMA ATIVIDADE PREVISTA PARA HOJE!
 			</div>
 		</div>
 	</div>

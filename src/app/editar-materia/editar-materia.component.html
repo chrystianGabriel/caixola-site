@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row" *ngIf="!editar">
+		<div class="col-sm-12" style="margin-top: 30px;font-size: 30px" align="center">
+			<div class="loader"></div>
+			<strong>SALVANDO ALTERAÇÕES, ISSO PODE LEVAR ALGUNS SEGUNDOS!</strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h3><strong class="destacar-texto">EDITAR</strong><strong> MATÉRIA</strong></h3>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-sm-6">
+			<label for=""><strong>Nome</strong></label>
+			<input type="text" [(ngModel)]="nome" class="input">
+		</div>
+		<div class="col-sm-6">
+			<label><strong>Nivel Materia</strong></label>
+			<select [(ngModel)]="nivel" class="input">
+				<option value="1">Iniciante</option>
+				<option value="2">Intermediario</option>
+				<option value="3">Avançado</option>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<label for="">Questões</label>
+			<input type="number" class="input" [(ngModel)]="questoes" min="0">
+		</div>
+		<div class="col-sm-4">
+			<label for="">Peso</label>
+			<input type="number" class="input" [(ngModel)]="peso" min="0" max="3">
+		</div>
+		<div class="col-sm-4">
+			<label>Selecione uma cor:</label>
+			<div>
+				<input type="color" [(ngModel)]="cor" id="corMateria" class="input-color">
+			</div>
+			
+		</div>
+	</div>
+	<div class="row" align="center">
+		<div class="col-sm-6">
+			<button class="btn btn-success btn-block" (click)="salvarAlteracoes()">Salvar Aterações</button>
+		</div>
+		<div class="col-sm-6" align="left">
+			<button class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+		</div>
+	</div>
+	
+</div>

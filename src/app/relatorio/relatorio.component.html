@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			<h3 align="center">
+				<strong>{{nome_materia}}</strong> - <strong><span> <span class="destacar-texto">ESTUDOS</span> REGISTRADOS</span></strong>
+				<br>
+			</h3>
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr  class="destacar" style="color:white">
+				<th scope="col">Data</th>
+				<th scope="col">Tempo</th>
+				<th scope="col">Tipo</th>
+				<th scope="col">Tema</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let estudo of listaEstudos" (click)="verDescricao(estudo.descricao)">
+				<th  scope="col">{{estudo.data}}</th>
+				<th  scope="col">{{estudo.tempo}}</th>
+				<th  scope="col">{{estudo.tipo}}</th>
+				<th  scope="col">{{estudo.tema}}</th>
+			</tr>
+			<tr>
+				<th class="destacar"></th>
+				<th class="destacar"></th>
+				<th scope="col" class="destacar" style="color:white">
+					Tempo Total: {{tempoTotal}}
+				</th>
+				<th class="destacar"></th>
+			</tr>
+		</tbody>
+	</table>
+	<div class="row">
+		<div class="col-sm-12" *ngIf="listaEstudos == false" align="center">
+			<h4>OPS! VOCÊ AINDA NÃO ESTUDOU ESTÁ MATÉRIA</h4>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="modalMetaSemanal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Descrição do estudo: </h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p style="white-space: normal;display: block;">
+					{{descricao}}
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>
